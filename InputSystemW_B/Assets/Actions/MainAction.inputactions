@@ -2,7 +2,7 @@
     "name": "MainAction",
     "maps": [
         {
-            "name": "PlayeActions",
+            "name": "PlayerActions",
             "id": "34e73360-d364-42f2-a16f-316ee0f251c6",
             "actions": [
                 {
