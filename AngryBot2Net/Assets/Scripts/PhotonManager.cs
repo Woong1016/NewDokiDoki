@@ -54,6 +54,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         Debug.Log($"Room Name = {PhotonNetwork.CurrentRoom.Name}");
     }
     // 룸에 입장한 후 호출되는 콜백 함수
+    // 룸에 입장한 후 호출되는 콜백 함수
     public override void OnJoinedRoom()
     {
         Debug.Log($"PhotonNetwork.InRoom = {PhotonNetwork.InRoom}");
@@ -63,5 +64,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             Debug.Log($"{player.Value.NickName} , {player.Value.ActorNumber}");
         }
+        // 출현 위치 정보를 배열에 저장
+        Transform[] points = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
+        int idx = Random.Range(1, points.Length);
+        // 네트워크상에 캐릭터 생성
+        PhotonNetwork.Instantiate("Player", points[idx].position, points[idx].rotation, 0);
     }
 }
